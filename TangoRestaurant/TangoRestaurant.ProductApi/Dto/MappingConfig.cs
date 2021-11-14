@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using TangoRestaurant.ProductApi.Data.Models;
+using TangoRestaurant.Services.ProductApi.Data.Models;
 
-namespace TangoRestaurant.ProductApi.Dto
+namespace TangoRestaurant.Services.ProductApi.Dto
 {
     public class MappingConfig
     {

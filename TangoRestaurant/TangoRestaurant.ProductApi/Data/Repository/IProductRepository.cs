@@ -1,6 +1,6 @@
-﻿using TangoRestaurant.ProductApi.Dto;
+﻿using TangoRestaurant.Services.ProductApi.Dto;
 
-namespace TangoRestaurant.ProductApi.Data.Repository
+namespace TangoRestaurant.Services.ProductApi.Data.Repository
 {
     public interface IProductRepository
     {

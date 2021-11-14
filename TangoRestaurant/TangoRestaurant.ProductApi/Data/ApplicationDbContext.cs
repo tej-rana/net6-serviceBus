@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TangoRestaurant.ProductApi.Data.Models;
+using TangoRestaurant.Services.ProductApi.Data.Models;
 
-namespace TangoRestaurant.ProductApi.Data
+namespace TangoRestaurant.Services.ProductApi.Data
 {
     public class ApplicationDbContext : DbContext
     {

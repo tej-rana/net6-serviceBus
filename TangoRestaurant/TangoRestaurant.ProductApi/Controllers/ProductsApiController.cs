@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TangoRestaurant.ProductApi.Data.Repository;
-using TangoRestaurant.ProductApi.Dto;
+using TangoRestaurant.Services.ProductApi.Data.Repository;
+using TangoRestaurant.Services.ProductApi.Dto;
 
-namespace TangoRestaurant.ProductApi.Controllers
+namespace TangoRestaurant.Services.ProductApi.Controllers
 {
     [Route("api/products")]
     [ApiController]
@@ -18,7 +18,7 @@ namespace TangoRestaurant.ProductApi.Controllers
             _response = new ResponseDto();
         }
 
-        [HttpGet]
+        [HttpGet]     
         public async Task<ActionResult<ResponseDto>> GetAllProducts()
         {
             try
@@ -26,14 +26,14 @@ namespace TangoRestaurant.ProductApi.Controllers
                 IEnumerable<ProductDto> productDtos = await _productRepository.GetProducts();
                 _response.Result = productDtos;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _response.IsSuccess = false;
                 _response.ErrorMessages = new List<string>
                 {
                     ex.Message
                 };
-               
+
             }
 
             return _response;
@@ -58,6 +58,7 @@ namespace TangoRestaurant.ProductApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ResponseDto>> Post([FromBody] ProductDto productDto)
         {
             try
@@ -76,6 +77,7 @@ namespace TangoRestaurant.ProductApi.Controllers
 
 
         [HttpPut]
+        [Authorize]
         public async Task<ActionResult<ResponseDto>> Put([FromBody] ProductDto productDto)
         {
             try
@@ -93,6 +95,7 @@ namespace TangoRestaurant.ProductApi.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         [Route("{id}")]
         public async Task<ActionResult<ResponseDto>> Delete(int id)
         {

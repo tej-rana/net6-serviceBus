@@ -11,55 +11,55 @@ namespace TangoRestaurant.Web.Services
         {
             _clientFactory = clientFactory;
         }
-        public async Task<T> CreateProductAsync<T>(ProductDto productDto)
+        public async Task<T> CreateProductAsync<T>(ProductDto productDto, string token)
         {
             return await SendAsync<T>(new ApiRequest()
             {
                 ApiType = ServiceLocator.ApiType.POST,
                 Data = productDto,
                 ApiUrl = ServiceLocator.ProductApiBase + "/api/products",
-                AccessToken = string.Empty
+                AccessToken = token
             });
         }
 
-        public async Task<T> DeleteProductAsync<T>(int id)
+        public async Task<T> DeleteProductAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = ServiceLocator.ApiType.DELETE,
                 ApiUrl = ServiceLocator.ProductApiBase + "/api/products/" + id,
-                AccessToken = string.Empty
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetProductsAsync<T>()
+        public async Task<T> GetProductsAsync<T>(string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = ServiceLocator.ApiType.GET,
                 ApiUrl = ServiceLocator.ProductApiBase + "/api/products",
-                AccessToken = string.Empty
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetProductsByIdAsync<T>(int id)
+        public async Task<T> GetProductsByIdAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = ServiceLocator.ApiType.GET,
                 ApiUrl = ServiceLocator.ProductApiBase + "/api/products/" + id,
-                AccessToken = string.Empty
+                AccessToken = token
             });
         }
 
-        public async Task<T> UpdateProductAsync<T>(ProductDto productDto)
+        public async Task<T> UpdateProductAsync<T>(ProductDto productDto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = ServiceLocator.ApiType.PUT,
                 Data = productDto,
                 ApiUrl = ServiceLocator.ProductApiBase + "/api/products",
-                AccessToken = string.Empty
+                AccessToken = token
             });
         }
     }

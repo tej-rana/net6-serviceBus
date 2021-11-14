@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{7D0DB4E2-C331-48B3-A5FC-03B92D7F4E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.Web", "TangoRestaurant.Web\TangoRestaurant.Web.csproj", "{8B9A6078-FA3C-43DA-AAD3-2D7E00C1B07D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Web", "TangoRestaurant.Web\TangoRestaurant.Web.csproj", "{8B9A6078-FA3C-43DA-AAD3-2D7E00C1B07D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2A8EBC4B-C09A-47C4-A420-89FC40060ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.ProductApi", "TangoRestaurant.ProductApi\TangoRestaurant.ProductApi.csproj", "{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Services.ProductApi", "TangoRestaurant.ProductApi\TangoRestaurant.Services.ProductApi.csproj", "{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.Services.Identity", "TangoRestaurant.Services.Identity\TangoRestaurant.Services.Identity.csproj", "{602B9B10-07FB-45A2-BBAB-9103C073D2E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602B9B10-07FB-45A2-BBAB-9103C073D2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602B9B10-07FB-45A2-BBAB-9103C073D2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602B9B10-07FB-45A2-BBAB-9103C073D2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602B9B10-07FB-45A2-BBAB-9103C073D2E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8B9A6078-FA3C-43DA-AAD3-2D7E00C1B07D} = {7D0DB4E2-C331-48B3-A5FC-03B92D7F4E26}
 		{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08} = {2A8EBC4B-C09A-47C4-A420-89FC40060ECA}
+		{602B9B10-07FB-45A2-BBAB-9103C073D2E2} = {2A8EBC4B-C09A-47C4-A420-89FC40060ECA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5443DFE6-61A7-4B90-B551-5BAD0582802E}
