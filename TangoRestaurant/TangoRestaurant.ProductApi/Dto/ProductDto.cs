@@ -1,4 +1,4 @@
-﻿namespace TangoRestaurant.ProductApi.Dto
+﻿namespace TangoRestaurant.Services.ProductApi.Dto
 {
     public class ProductDto
     {

@@ -3,13 +3,12 @@
 
 
 using IdentityModel;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text.Json;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Test;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace TangoRestaurant.Services.Identity.Controllers
 {
     public class TestUsers
     {
@@ -24,7 +23,7 @@ namespace IdentityServerHost.Quickstart.UI
                     postal_code = 69118,
                     country = "Germany"
                 };
-                
+
                 return new List<TestUser>
                 {
                     new TestUser

@@ -1,10 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // See LICENSE in the project root for license information.
 
-
-using System;
-
-namespace IdentityServerHost.Quickstart.UI
+namespace TangoRestaurant.Services.Identity.Controllers.Account
 {
     public class AccountOptions
     {

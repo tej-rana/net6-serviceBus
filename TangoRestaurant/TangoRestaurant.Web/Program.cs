@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
 using TangoRestaurant.Web;
 using TangoRestaurant.Web.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,31 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IProductService, ProductService>();
 ServiceLocator.ProductApiBase = builder.Configuration["ServiceUrls:ProductApi"];
 builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = "Cookies";
+    options.DefaultChallengeScheme = "oidc";
+})
+               .AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+              
+               .AddOpenIdConnect("oidc", options =>
+               {
+                   options.Authority = builder.Configuration["ServiceUrls:IdentityApi"];
+                   options.GetClaimsFromUserInfoEndpoint = true;
+                   options.ClientId = "tango_client";
+                   options.ClientSecret = "secret";
+                   options.ResponseType = "code";
+                   options.ClaimActions.MapJsonKey("role", "role", "role");
+                   options.ClaimActions.MapJsonKey("sub", "sub", "sub");
+                   options.TokenValidationParameters.NameClaimType = "name";
+                   options.TokenValidationParameters.RoleClaimType = "role";
+                   options.Scope.Add("tango");
+                   options.SaveTokens = true;
+
+               });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,7 +49,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

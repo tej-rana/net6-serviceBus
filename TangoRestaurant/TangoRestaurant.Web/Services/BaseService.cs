@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using TangoRestaurant.Web.Models;
 using TangoRestaurant.Web.Models.Dto;
 
@@ -29,6 +30,12 @@ namespace TangoRestaurant.Web.Services
                     message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data), 
                         System.Text.Encoding.UTF8, "application/json");
                 }
+
+                if (!string.IsNullOrEmpty(apiRequest.AccessToken))
+                {
+                   client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiRequest.AccessToken);
+                }
+
                 HttpResponseMessage apiResponse = null;
 
                 switch (apiRequest.ApiType)

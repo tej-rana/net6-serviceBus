@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using TangoRestaurant.ProductApi.Data.Models;
-using TangoRestaurant.ProductApi.Dto;
+using TangoRestaurant.Services.ProductApi.Data.Models;
+using TangoRestaurant.Services.ProductApi.Dto;
 
-namespace TangoRestaurant.ProductApi.Data.Repository
+namespace TangoRestaurant.Services.ProductApi.Data.Repository
 {
     public class ProductRepository : IProductRepository
     {
@@ -15,15 +15,16 @@ namespace TangoRestaurant.ProductApi.Data.Repository
             _dbContext = dbContext;
             _mapper = mapper;
         }
-      
+
 
         public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
         {
             var product = _mapper.Map<ProductDto, Product>(productDto);
-            if(product.ProductId > 0)
+            if (product.ProductId > 0)
             {
                 _dbContext.Products.Update(product);
-            } else
+            }
+            else
             {
                 _dbContext.Products.Add(product);
             }
@@ -45,7 +46,7 @@ namespace TangoRestaurant.ProductApi.Data.Repository
 
                 return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return false;
             }

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Web", "Tang
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{2A8EBC4B-C09A-47C4-A420-89FC40060ECA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.ProductApi", "TangoRestaurant.ProductApi\TangoRestaurant.ProductApi.csproj", "{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Services.ProductApi", "TangoRestaurant.ProductApi\TangoRestaurant.Services.ProductApi.csproj", "{EF1AD844-A4EA-47A5-80A8-453D3A9AEA08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.Services.Identity", "TangoRestaurant.Services.Identity\TangoRestaurant.Services.Identity.csproj", "{602B9B10-07FB-45A2-BBAB-9103C073D2E2}"
 EndProject

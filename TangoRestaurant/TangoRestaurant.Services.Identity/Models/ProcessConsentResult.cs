@@ -4,7 +4,7 @@
 
 using Duende.IdentityServer.Models;
 
-namespace IdentityServerHost.Quickstart.UI
+namespace TangoRestaurant.Services.Identity.Models
 {
     public class ProcessConsentResult
     {
