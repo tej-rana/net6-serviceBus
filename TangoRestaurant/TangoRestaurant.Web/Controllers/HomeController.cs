@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -12,11 +13,13 @@ namespace TangoRestaurant.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductService _productService;
+        private readonly ICartService _cartService;
 
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        public HomeController(ILogger<HomeController> logger, IProductService productService, ICartService cartService)
         {
             _logger = logger;
             _productService = productService;
+            _cartService = cartService;
         }
 
         public async Task<IActionResult> Index()
@@ -47,7 +50,7 @@ namespace TangoRestaurant.Web.Controllers
         [Authorize]
         public async Task<IActionResult> DetailsPost(ProductDto productDto)
         {
-           /* CartDto cartDto = new()
+            CartDto cartDto = new()
             {
                 CartHeader = new CartHeaderDto
                 {
@@ -61,7 +64,7 @@ namespace TangoRestaurant.Web.Controllers
                 ProductId = productDto.ProductId
             };
 
-            var resp = await _productService.GetProductByIdAsync<ResponseDto>(productDto.ProductId, "");
+            var resp = await _productService.GetProductsByIdAsync<ResponseDto>(productDto.ProductId, "");
             if (resp != null && resp.IsSuccess)
             {
                 cartDetails.Product = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(resp.Result));
@@ -75,7 +78,7 @@ namespace TangoRestaurant.Web.Controllers
             if (addToCartResp != null && addToCartResp.IsSuccess)
             {
                 return RedirectToAction(nameof(Index));
-            }*/
+            }
 
             return View(productDto);
         }

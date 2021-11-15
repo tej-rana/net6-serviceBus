@@ -1,15 +1,25 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using TangoRestaurant.Services.ProductApi.Data;
-using TangoRestaurant.Services.ProductApi.Data.Repository;
-using TangoRestaurant.Services.ProductApi.Dto;
+using TangoRestaurant.Services.CouponApi.Data;
+using TangoRestaurant.Services.CouponApi.Data.Repository;
+using TangoRestaurant.Services.CouponApi.Dto;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<ICouponRepository, CouponRepository>();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
 {
     options.Authority = "https://localhost:7121/";
@@ -18,7 +28,6 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
         ValidateAudience = false,
     };
 });
-
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ApiScope", policy =>
@@ -28,21 +37,9 @@ builder.Services.AddAuthorization(options =>
     });
 });
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddSwaggerGen( c=>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TangoRestaurant.Services.ProductApi", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TangoRestaurant.Services.CouponApi", Version = "v1" });
     c.EnableAnnotations();
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -54,7 +51,7 @@ builder.Services.AddSwaggerGen( c=>
     });
 
     c.AddSecurityRequirement(
-        new OpenApiSecurityRequirement 
+        new OpenApiSecurityRequirement
         {
             {
             new OpenApiSecurityScheme
@@ -80,13 +77,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TangoRestaurant.Services.ProductApi v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TangoRestaurant.Services.CouponApi v1"));
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.MapControllers();

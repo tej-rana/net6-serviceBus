@@ -1,23 +1,23 @@
-{
+﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:63531/",
-      "sslPort": 44361
+      "applicationUrl": "http://localhost:47218",
+      "sslPort": 44370
     }
   },
   "profiles": {
-    "TangoRestaurant.ProductApi": {
+    "TangoRestaurant.Services.CouponApi": {
       "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7214;http://localhost:5214",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:7014;http://localhost:5014",
-      "dotnetRunMessages": true
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",

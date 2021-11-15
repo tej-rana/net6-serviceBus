@@ -9,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IProductService, ProductService>();
 ServiceLocator.ProductApiBase = builder.Configuration["ServiceUrls:ProductApi"];
+ServiceLocator.ShoppingCartApiBase = builder.Configuration["ServiceUrls:ShoppingCartApi"];
+ServiceLocator.CouponApiBase = builder.Configuration["ServiceUrls:CouponApiBase"];
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
 
 builder.Services.AddAuthentication(options =>
 {
