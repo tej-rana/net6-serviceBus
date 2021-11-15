@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TangoRestaurant.Services.ShoppingCartApi.Data.Repository;
 using TangoRestaurant.Services.ShoppingCartApi.Dto;
+using TangoRestaurant.Services.ShoppingCartApi.Messages;
 
 namespace TangoRestaurant.Services.ShoppingCartApi.Controllers
 {
@@ -145,7 +146,7 @@ namespace TangoRestaurant.Services.ShoppingCartApi.Controllers
 
                 checkoutHeader.CartDetails = cartDto.CartDetails;
                 //logic to add message to process order.
-                await _messageBus.PublishMessage(checkoutHeader, "checkoutqueue");
+              //  await _messageBus.PublishMessage(checkoutHeader, "checkoutqueue");
 
                 ////rabbitMQ
                 //_rabbitMQCartMessageSender.SendMessage(checkoutHeader, "checkoutqueue");
