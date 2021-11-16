@@ -26,4 +26,8 @@
     <Folder Include="Messages\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TangoRestaurant.MessageBus\TangoRestaurant.MessageBus.csproj" />
+  </ItemGroup>
+
 </Project>
