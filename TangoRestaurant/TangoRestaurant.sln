@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.PaymentGate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Services.PaymentApi", "TangoRestaurant.Services.PaymentApi\TangoRestaurant.Services.PaymentApi.csproj", "{08A2A579-AFFB-4622-8673-7FD5F304FE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.Services.EmailApi", "TangoRestaurant.Services.EmailApi\TangoRestaurant.Services.EmailApi.csproj", "{53A51E4E-39A0-4265-9F87-5B170691B3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TangoRestaurant.Services.EmailApi", "TangoRestaurant.Services.EmailApi\TangoRestaurant.Services.EmailApi.csproj", "{53A51E4E-39A0-4265-9F87-5B170691B3D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{342620D2-F428-4A1D-AFF0-EEEF0C38AC21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangoRestaurant.Gateway", "TangoRestaurant.Gateway\TangoRestaurant.Gateway.csproj", "{18CA7CC6-8F28-4C41-8932-8404CA73C5C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,10 @@ Global
 		{53A51E4E-39A0-4265-9F87-5B170691B3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53A51E4E-39A0-4265-9F87-5B170691B3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53A51E4E-39A0-4265-9F87-5B170691B3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18CA7CC6-8F28-4C41-8932-8404CA73C5C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CA7CC6-8F28-4C41-8932-8404CA73C5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CA7CC6-8F28-4C41-8932-8404CA73C5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CA7CC6-8F28-4C41-8932-8404CA73C5C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +100,7 @@ Global
 		{66351EC0-186C-4762-9842-A8245DC509F5} = {F5BD16FC-9484-48E8-9712-AA3A7D0EB805}
 		{08A2A579-AFFB-4622-8673-7FD5F304FE82} = {2A8EBC4B-C09A-47C4-A420-89FC40060ECA}
 		{53A51E4E-39A0-4265-9F87-5B170691B3D2} = {2A8EBC4B-C09A-47C4-A420-89FC40060ECA}
+		{18CA7CC6-8F28-4C41-8932-8404CA73C5C3} = {342620D2-F428-4A1D-AFF0-EEEF0C38AC21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5443DFE6-61A7-4B90-B551-5BAD0582802E}
